@@ -1,0 +1,29 @@
+{
+  "brand_name": "Quietly Wealthy",
+  "handle": "@quietlywealthy001",
+  "display_name_locked": "Omowumi Ibrahim",
+  "monogram": "QW",
+  "tagline": "Practical playbooks to build digital income quietly.",
+  "palette": {
+    "obsidian": "#0B0D10",
+    "card": "#14181F",
+    "white": "#F7F5F0",
+    "gold": "#E5B84B",
+    "emerald": "#10B981"
+  },
+  "alternates": [
+    {
+      "brand_name": "Gilded Playbook",
+      "handle": "gildedplaybook.co",
+      "monogram": "GP"
+    },
+    {
+      "brand_name": "Margin Memo",
+      "handle": "marginmemo.co",
+      "monogram": "MM"
+    }
+  ],
+  "storefront_url": "https://selar.com/m/omowumi-ibrahim1",
+  "product_1_url": "https://selar.com/8ec448f48m",
+  "product_2_url": "https://selar.com/8fj8h8327w"
+}

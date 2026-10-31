@@ -1,0 +1,10 @@
+.env
+.env.*
+.browser_profile/
+products/*.pdf
+__pycache__/
+*.pyc
+build/
+src/clean_*.py
+src/restore_*.py
+

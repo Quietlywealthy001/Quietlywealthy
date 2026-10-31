@@ -1,0 +1,39 @@
+name: Auto PLAYBOOK Comment-to-DM Responder
+
+on:
+  schedule:
+    # Runs every 30 minutes 24/7 to reply to PLAYBOOK / GUIDE comments
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  comment-responder:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Scan & Reply to PLAYBOOK Comments
+        env:
+          COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
+          COMPOSIO_MCP_URL: https://connect.composio.dev/mcp
+        run: |
+          python src/reply_playbook_comments.py
+
+      - name: Persist replied comment IDs
+        run: |
+          git config user.name "Quietly Wealthy Responder"
+          git config user.email "responder@quietlywealthy.local"
+          git add content_queue/replied_comments.json
+          git diff --staged --quiet || git commit -m "chore(responder): update replied_comments.json [skip ci]"
+          git push
+
